@@ -20,18 +20,24 @@ public class PlayerController : MonoBehaviour
     Vector3 inicialPos;
     public bool IsWinning;
     public Action onDeath;
-    
+    [SerializeField]
+    Collider deadEnd;
+    [SerializeField]
+    Collider enemyDeadEnd;
+    public bool isDead;
+
 
     Rigidbody rbPlayer;
     // Start is called before the first frame update
     void Start()
     {
         rbPlayer = GetComponent<Rigidbody>();
-        //inicialPos = transform.position;
+        isDead = false;
     }
 
     private void FixedUpdate()
     {
+        if (GameManager.Instance.gameState == GameState.gameOver) return;
         rbPlayer.AddForce(Vector3.right * dir, ForceMode.Impulse);
         inicialPos = GameManager.Instance.center.transform.position;
     }
@@ -39,6 +45,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.gameState == GameState.gameOver) return;
+
         Inputs();
         if(transform.position.x < inicialPos.x * dir )
         {
@@ -76,6 +84,21 @@ public class PlayerController : MonoBehaviour
     {
         onDeath?.Invoke();
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == deadEnd.gameObject)
+        {
+            rbPlayer.AddForce(Vector3.right * 7 * -dir, ForceMode.Impulse);
+            isDead = true;
 
+        }
+        else if (other.gameObject == enemyDeadEnd.gameObject)
+        {
+            GameManager.Instance.winner = this.gameObject;
+
+            rbPlayer.constraints = RigidbodyConstraints.FreezePositionX;
+            rbPlayer.AddTorque(Vector3.up * 10);
+        }
+    }
 }
 

@@ -13,11 +13,13 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    public GameObject player1;
+    public PlayerController player1;
     
-    public GameObject player2;
+    public PlayerController player2;
     
     public Collider center;
+    public GameState gameState;
+    public GameObject winner;
     private void Awake()
     {
         if(Instance != null)
@@ -31,12 +33,24 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        
+        gameState = GameState.play;
+        player1.onDeath += GameOver;
+        player2.onDeath += GameOver;
     }
 
+    void GameOver()
+    {
+        gameState = GameState.gameOver;
+        Debug.Log("the winner is " + winner);
+    }
     // Update is called once per frame
     void Update()
     {
         
     }
+}
+public enum GameState
+{
+    play,
+    gameOver
 }
