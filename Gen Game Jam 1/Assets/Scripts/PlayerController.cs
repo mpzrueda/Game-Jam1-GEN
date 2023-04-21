@@ -95,7 +95,6 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject == enemyDeadEnd.gameObject)
         {
             GameManager.Instance.winner = this.gameObject;
-
             rbPlayer.constraints = RigidbodyConstraints.FreezePositionX;
             rbPlayer.AddTorque(Vector3.up * 10);
         }
