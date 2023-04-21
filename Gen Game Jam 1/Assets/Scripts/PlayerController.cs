@@ -27,20 +27,20 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rbPlayer = GetComponent<Rigidbody>();
-        inicialPos = transform.position;
+        //inicialPos = transform.position;
     }
 
     private void FixedUpdate()
     {
         rbPlayer.AddForce(Vector3.right * dir, ForceMode.Impulse);
-
+        inicialPos = GameManager.Instance.center.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
         Inputs();
-        if(transform.position.x < inicialPos.x * dir)
+        if(transform.position.x < inicialPos.x * dir )
         {
             IsWinning = true;
             Debug.Log(this + " Is Winning");
@@ -78,3 +78,4 @@ public class PlayerController : MonoBehaviour
     }
 
 }
+
