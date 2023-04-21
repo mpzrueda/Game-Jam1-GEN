@@ -10,6 +10,10 @@ public class PowerUps : MonoBehaviour
 
     public Power power;
 
+    public GameObject player1;
+    
+    public GameObject player2;
+
     private float time = 0;
     private float timePower = 5;
     // Start is called before the first frame update
@@ -41,6 +45,7 @@ public class PowerUps : MonoBehaviour
             Debug.Log("Gano A");
             power.idlePower();
             contPlayerA = 0;
+            aplyPowerUp(player1,player2);
             //Destroy(power.A);
         }
         if(contPlayerB == power.life)
@@ -48,10 +53,29 @@ public class PowerUps : MonoBehaviour
             Debug.Log("Gano B");
             power.idlePower();
             contPlayerB = 0;
+            aplyPowerUp(player2,player1);
             //Destroy(power.B);
         }
     }
 
+    public void aplyPowerUp(GameObject playerWin,GameObject playerLose)
+    {
+        if(power.actualPower == "Change")
+        {
+            Debug.Log("Entre a verificar");
+            if(playerWin.GetComponent<PlayerController>().IsWinning == false)
+            {
+                Debug.Log("Cambio");
+                Transform tmpPosition = player1.transform;
+                player1.transform.position = player2.transform.position;
+                player2.transform.position = tmpPosition.position; 
+            }
+        }
+        if(power.actualPower == "PushUp")
+        {
+            playerWin.GetComponent<PlayerController>().PushPower(-2);
+        }
+    }
     public void updatePowerTime()
     {
         //Debug.Log(time);

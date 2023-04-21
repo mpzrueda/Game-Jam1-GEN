@@ -84,6 +84,12 @@ public class PlayerController : MonoBehaviour
         Vector3 inputForce = new Vector3(movH, transform.position.y, transform.position.z);
         rbPlayer.AddForce(Vector3.right * (pushForce *dir), ForceMode.Impulse);
     }
+
+    public void PushPower(float power)
+    {
+        Vector3 inputForce = new Vector3(movH, transform.position.y, transform.position.z);
+        rbPlayer.AddForce(Vector3.right * (pushForce *dir*power), ForceMode.Impulse);
+    }
     public void Lose()
     {
         onDeath?.Invoke();
