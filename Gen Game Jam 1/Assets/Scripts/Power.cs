@@ -54,4 +54,11 @@ public class Power : MonoBehaviour
         Debug.Log("Toco el poder: " + powersNames[RandomNumber]);
     }
 
+    public void idlePower()
+    {
+        life = timeStopPowerLife;
+        powerSlot1.sprite = power[3];
+        powerSlot2.sprite = power[3];
+    }
+
 }

@@ -11,7 +11,7 @@ public class PowerUps : MonoBehaviour
     public Power power;
 
     private float time = 0;
-    private float timePower = 10;
+    private float timePower = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,14 +39,17 @@ public class PowerUps : MonoBehaviour
         if(contPlayerA == power.life)
         {
             Debug.Log("Gano A");
-            Destroy(power.A);
+            power.idlePower();
+            contPlayerA = 0;
+            //Destroy(power.A);
         }
         if(contPlayerB == power.life)
         {
             Debug.Log("Gano B");
-            Destroy(power.B);
+            power.idlePower();
+            contPlayerB = 0;
+            //Destroy(power.B);
         }
-        
     }
 
     public void updatePowerTime()
