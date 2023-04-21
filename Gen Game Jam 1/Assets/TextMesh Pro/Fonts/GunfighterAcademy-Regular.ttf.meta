@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: a188d441365b57b48b2477f1bbd3a40f
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Gunfighter Academy
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 4347646d53cd4534885c00476e96efb0, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
