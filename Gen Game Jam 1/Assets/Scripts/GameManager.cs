@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour
     public PlayerController player1;
     
     public PlayerController player2;
-    
+    [SerializeField]
+    UIController ui;
     public Collider center;
     public GameState gameState;
     public GameObject winner;
@@ -33,7 +34,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        gameState = GameState.play;
+        gameState = GameState.gameOver;
         player1.onDeath += GameOver;
         player2.onDeath += GameOver;
     }
