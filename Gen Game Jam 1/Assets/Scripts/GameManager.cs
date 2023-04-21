@@ -12,11 +12,12 @@ public class GameManager : MonoBehaviour
             return instance;
         }
     }
-    [SerializeField]
-    GameObject player1;
-    [SerializeField]
-    GameObject player2;
-
+    
+    public GameObject player1;
+    
+    public GameObject player2;
+    
+    public Collider center;
     private void Awake()
     {
         if(Instance != null)
