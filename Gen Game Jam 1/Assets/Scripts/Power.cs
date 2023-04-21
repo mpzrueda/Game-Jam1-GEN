@@ -58,7 +58,7 @@ public class Power : MonoBehaviour
 
     public void idlePower()
     {
-        life = 999999;
+        life = 100;
         powerSlot1.sprite = power[3];
         powerSlot2.sprite = power[3];
     }
