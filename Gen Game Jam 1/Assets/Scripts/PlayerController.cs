@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     Collider enemyDeadEnd;
     public bool isDead;
+    ParticleSystem strenghtparticleSystem;
 
 
     Rigidbody rbPlayer;
@@ -33,6 +34,8 @@ public class PlayerController : MonoBehaviour
     {
         rbPlayer = GetComponent<Rigidbody>();
         isDead = false;
+        strenghtparticleSystem = GetComponentInChildren<ParticleSystem>();
+        clickCounter = 0;
     }
 
     private void FixedUpdate()
@@ -72,6 +75,7 @@ public class PlayerController : MonoBehaviour
             clickCounter += 1;
             pushForce += addStrenght;
             Push();
+            strenghtparticleSystem.Play();
         }
 
     }
@@ -95,6 +99,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject == deadEnd.gameObject)
         {
             rbPlayer.AddForce(Vector3.right * 7 * -dir, ForceMode.Impulse);
+            strenghtparticleSystem.Stop();
             isDead = true;
 
         }
@@ -102,6 +107,8 @@ public class PlayerController : MonoBehaviour
         {
             GameManager.Instance.winner = this.gameObject;
             rbPlayer.constraints = RigidbodyConstraints.FreezePositionX;
+            strenghtparticleSystem.Stop();
+
             rbPlayer.AddTorque(Vector3.up * 10);
         }
     }
