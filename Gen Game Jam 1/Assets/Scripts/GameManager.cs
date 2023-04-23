@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        gameState = GameState.gameOver;
+        gameState = GameState.start;
         player1.onDeath += GameOver;
         player2.onDeath += GameOver;
     }
@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
 }
 public enum GameState
 {
+    start,
     play,
     gameOver
 }

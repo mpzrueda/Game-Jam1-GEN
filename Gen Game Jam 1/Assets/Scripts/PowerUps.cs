@@ -26,6 +26,7 @@ public class PowerUps : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.gameState == GameState.gameOver) return;
         updatePowerTime();
         checkLife();
         if(Input.GetKeyDown(KeyCode.A))

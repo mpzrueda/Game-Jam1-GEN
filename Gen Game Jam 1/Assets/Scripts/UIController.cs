@@ -10,21 +10,27 @@ public class UIController : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI gameOvertext;
     [SerializeField]
+    GameObject titletext;
+    [SerializeField]
     Button startBtn;    
     [SerializeField]
     Button restartBtn;
     [SerializeField]
-    TextMeshProUGUI instructionsText;    
+    GameObject instructionsText;    
     [SerializeField]
     TextMeshProUGUI switchPosPUinstructionsText;    
     [SerializeField]
     TextMeshProUGUI doubleForcePUinstructionsText;
-    [SerializeField]
+    
     WaitForSeconds waitFor;
+    
+    public int secsToWait;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Pasando");
         instructionsText.gameObject.SetActive(false);
         doubleForcePUinstructionsText.gameObject.SetActive(false);
         switchPosPUinstructionsText.gameObject.SetActive(false);
@@ -32,7 +38,10 @@ public class UIController : MonoBehaviour
         restartBtn.gameObject.SetActive(false);
         startBtn.onClick.AddListener(FirstStart);
         startBtn.gameObject.SetActive(true);
-        gameOvertext.gameObject.SetActive(true);
+        gameOvertext.gameObject.SetActive(false);
+        titletext.gameObject.SetActive(true);
+        Debug.Log("LLogre");
+        waitFor = new WaitForSeconds(3);
 
 
     }
@@ -63,6 +72,7 @@ public class UIController : MonoBehaviour
         GameManager.Instance.gameState = GameState.play;
         StartCoroutine(StartGame());
         startBtn.gameObject.SetActive(false);
+        titletext.gameObject.SetActive(false);
     }
     void RestartGame()
     {
@@ -77,6 +87,7 @@ public class UIController : MonoBehaviour
         {
             gameOvertext.text = "Game over!, the winner is " + GameManager.Instance.winner;
             gameOvertext.gameObject.SetActive(true);
+            restartBtn.gameObject.SetActive(true);
         }
     }
 }
