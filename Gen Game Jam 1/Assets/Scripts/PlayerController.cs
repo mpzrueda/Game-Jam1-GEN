@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     float movH;
     [Header("Push Force")]
     [SerializeField]
-    float pushForce;
+    public float pushForce;
     [SerializeField]
     int dir;
     public int clickCounter;
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         if (GameManager.Instance.gameState == GameState.gameOver) return;
-        rbPlayer.AddForce(Vector3.right * dir, ForceMode.Impulse);
+        //rbPlayer.AddForce(Vector3.right * dir, ForceMode.Impulse);
         inicialPos = GameManager.Instance.center.transform.position;
     }
 

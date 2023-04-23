@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class Power : MonoBehaviour
 {
 
-    string[] powersNames = {"Change", "PushUp", "timeStop","Idle","Idle","Idle","Idle","Idle","Idle","Idle"};
+    string[] powersNames = {"Change", "PushUp", "timeStop","Idle"};
 
     public int life;
-    public int changePowerLife = 10;
-    public int duplicatePowerLife = 5;
-    public int timeStopPowerLife = 5;
+    public int changePowerLife = 15;
+    public int duplicatePowerLife = 15;
+    public int timeStopPowerLife = 15;
     public int idleTime = 10;
     public string actualPower;
     [SerializeField] Sprite[] power;
@@ -26,34 +26,33 @@ public class Power : MonoBehaviour
     }
     public void changePower()
     {
-        int RandomNumber = Random.Range(0,5);
+        int RandomNumber = Random.Range(0,4);
         actualPower = powersNames[RandomNumber]; 
-        if(powersNames[RandomNumber] == "Change")
+        if(actualPower == "Change")
         {
             life = changePowerLife;
             powerSlot1.sprite = power[0];
             powerSlot2.sprite = power[0];
 
         }
-        else if(powersNames[RandomNumber] == "PushUp")
+        else if(actualPower == "PushUp")
         {
             life = duplicatePowerLife;
             powerSlot1.sprite = power[1];
             powerSlot2.sprite = power[1];
         }
-        //else if(powersNames[RandomNumber] == "timeStop")
-        //{
-        //    life = timeStopPowerLife;
-        //    powerSlot1.sprite = power[2];
-        //    powerSlot2.sprite = power[2];
-        //}
+        else if(actualPower == "timeStop")
+        {
+            life = timeStopPowerLife;
+            powerSlot1.sprite = power[2];
+            powerSlot2.sprite = power[2];
+        }
         else
         {
             life = timeStopPowerLife;
             powerSlot1.sprite = power[3];
             powerSlot2.sprite = power[3];
         }
-        Debug.Log("Toco el poder: " + powersNames[RandomNumber]);
     }
 
     public void idlePower()

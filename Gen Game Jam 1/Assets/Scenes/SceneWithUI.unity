@@ -1221,7 +1221,7 @@ MonoBehaviour:
   changePowerLife: 10
   duplicatePowerLife: 5
   timeStopPowerLife: 5
-  idleTime: 10
+  idleTime: 5
   actualPower: 
   power:
   - {fileID: 21300000, guid: b0a3df50d223ed5469fe6908b0c7ef02, type: 3}
@@ -1230,8 +1230,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e17f4674937dfed4eacb6c1b95e9526f, type: 3}
   powerSlot1: {fileID: 2035540001}
   powerSlot2: {fileID: 697995439}
-  A: {fileID: 2035539998}
-  B: {fileID: 697995436}
+  A: {fileID: 287121172}
+  B: {fileID: 45573742}
 --- !u!4 &1002048713
 Transform:
   m_ObjectHideFlags: 0
@@ -2585,11 +2585,27 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1296603844}
     - target: {fileID: 6036119532117822025, guid: 5eaf0a3625635c44cab65a022a10d90a, type: 3}
+      propertyPath: pushForce
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036119532117822025, guid: 5eaf0a3625635c44cab65a022a10d90a, type: 3}
       propertyPath: enemyDeadEnd
       value: 
       objectReference: {fileID: 1296603845}
     - target: {fileID: 6036119532117822026, guid: 5eaf0a3625635c44cab65a022a10d90a, type: 3}
       propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036119532117822026, guid: 5eaf0a3625635c44cab65a022a10d90a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036119532117822026, guid: 5eaf0a3625635c44cab65a022a10d90a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036119532117822026, guid: 5eaf0a3625635c44cab65a022a10d90a, type: 3}
+      propertyPath: m_LocalScale.z
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6036119532117822026, guid: 5eaf0a3625635c44cab65a022a10d90a, type: 3}
@@ -2651,15 +2667,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6854841682502178144, guid: 95d14836d067fe645a9d98134329aaa5, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6854841682502178144, guid: 95d14836d067fe645a9d98134329aaa5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6854841682502178144, guid: 95d14836d067fe645a9d98134329aaa5, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6854841682502178144, guid: 95d14836d067fe645a9d98134329aaa5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2705,6 +2721,10 @@ PrefabInstance:
       propertyPath: deadEnd
       value: 
       objectReference: {fileID: 1296603845}
+    - target: {fileID: 6854841682502178147, guid: 95d14836d067fe645a9d98134329aaa5, type: 3}
+      propertyPath: pushForce
+      value: 0.0001
+      objectReference: {fileID: 0}
     - target: {fileID: 6854841682502178147, guid: 95d14836d067fe645a9d98134329aaa5, type: 3}
       propertyPath: enemyDeadEnd
       value: 

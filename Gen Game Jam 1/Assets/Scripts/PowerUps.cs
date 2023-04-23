@@ -15,11 +15,10 @@ public class PowerUps : MonoBehaviour
     public GameObject player2;
 
     private float time = 0;
-    private float timePower = 5;
+    private float timePower = 8;
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Iniciando power");
         power.changePower();
     }
 
@@ -44,47 +43,71 @@ public class PowerUps : MonoBehaviour
         if(contPlayerA == power.life)
         {
             Debug.Log("Gano A");
+            aplyPowerUp(player1,player2);
             power.idlePower();
             contPlayerA = 0;
-            aplyPowerUp(player1,player2);
+            contPlayerB = 0;
             //Destroy(power.A);
         }
         if(contPlayerB == power.life)
         {
             Debug.Log("Gano B");
+            aplyPowerUp(player2,player1);
             power.idlePower();
             contPlayerB = 0;
-            aplyPowerUp(player2,player1);
+            contPlayerA = 0;
             //Destroy(power.B);
         }
     }
-
+    private IEnumerator colliderOn(GameObject player)
+    {
+        yield return new WaitForSeconds(2);
+        player.GetComponent<Collider>().enabled = true;
+    }
     public void aplyPowerUp(GameObject playerWin,GameObject playerLose)
     {
         if(power.actualPower == "Change")
         {
-            Debug.Log("Entre a verificar");
-            if(playerWin.GetComponent<PlayerController>().IsWinning == false)
-            {
-                Debug.Log("Cambio");
-                Transform tmpPosition = player1.transform;
-                player1.transform.position = player2.transform.position;
-                player2.transform.position = tmpPosition.position; 
-            }
+            Debug.Log("Cambio");
+            Debug.Log(playerWin.transform.position);
+            Debug.Log(playerLose.transform.position);
+
+            Vector3 tmpPosition = playerWin.transform.position;
+            //playerWin.GetComponent<Collider>().enabled = false;
+            //StartCoroutine(colliderOn(playerWin));
+            playerWin.transform.position = playerLose.transform.position;
+            playerLose.transform.position = tmpPosition;
+            Debug.Log(playerWin.transform.position);
+            Debug.Log(playerLose.transform.position);
         }
-        if(power.actualPower == "PushUp")
+        else if(power.actualPower == "timeStop")
         {
-            playerWin.GetComponent<PlayerController>().PushPower(-2);
+            Debug.Log("time stop");
+            StartCoroutine(stopLoser(playerLose));
+        }
+        else if(power.actualPower == "PushUp")
+        {
+            Debug.Log("A volar");
+            playerWin.GetComponent<PlayerController>().PushPower(2);
         }
     }
     public void updatePowerTime()
     {
-        //Debug.Log(time);
         time+= Time.deltaTime;
         if(time>timePower)
         {
             time = 0;
+            contPlayerB = 0;
+            contPlayerA = 0;
             power.changePower();
         }
     }
+
+    public IEnumerator stopLoser(GameObject player)
+    {
+        float tmp = player.GetComponent<PlayerController>().pushForce;
+        player.GetComponent<PlayerController>().pushForce = 0;
+        yield return 3;
+        player.GetComponent<PlayerController>().pushForce = tmp;
+    }    
 }
