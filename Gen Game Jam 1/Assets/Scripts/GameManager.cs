@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public Collider center;
     public GameState gameState;
     public GameObject winner;
+    public PowerUps powerUps;
     private void Awake()
     {
         if(Instance != null)

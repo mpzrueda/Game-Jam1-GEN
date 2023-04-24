@@ -21,7 +21,7 @@ public class UIController : MonoBehaviour
     TextMeshProUGUI switchPosPUinstructionsText;    
     [SerializeField]
     TextMeshProUGUI doubleForcePUinstructionsText;
-    
+
     WaitForSeconds waitFor;
     
     public int secsToWait;
@@ -41,8 +41,7 @@ public class UIController : MonoBehaviour
         gameOvertext.gameObject.SetActive(false);
         titletext.gameObject.SetActive(true);
         Debug.Log("LLogre");
-        waitFor = new WaitForSeconds(3);
-
+        waitFor = new WaitForSeconds(secsToWait);
 
     }
 

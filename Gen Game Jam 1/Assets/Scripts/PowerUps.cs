@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PowerUps : MonoBehaviour
 {
@@ -14,12 +15,25 @@ public class PowerUps : MonoBehaviour
     
     public GameObject player2;
 
-    private float time = 0;
-    private float timePower = 8;
+    public float time = 0;
+    public float timePower = 8;
+
+    [SerializeField]
+    Slider pUSlider1;
+    [SerializeField]
+    Slider pUSlider2;
     // Start is called before the first frame update
     void Start()
     {
         power.changePower();
+        pUSlider1.maxValue = power.life;
+        pUSlider1.minValue = 0;
+        pUSlider2.maxValue = power.life;
+        pUSlider2.minValue = 0;
+        pUSlider1.value = 0;
+        pUSlider2.value = 0;
+        pUSlider1.gameObject.SetActive(false);
+        pUSlider2.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -27,6 +41,8 @@ public class PowerUps : MonoBehaviour
     {
         if (GameManager.Instance.gameState == GameState.gameOver) return;
         updatePowerTime();
+        pUSlider1.gameObject.SetActive(true);
+        pUSlider2.gameObject.SetActive(true);
         checkLife();
         if(Input.GetKeyDown(KeyCode.A))
         {
@@ -36,6 +52,8 @@ public class PowerUps : MonoBehaviour
         {
             contPlayerB+=1;
         }
+        pUSlider1.value = contPlayerA;
+        pUSlider2.value = contPlayerB;
     }
 
     public void checkLife()
@@ -100,6 +118,8 @@ public class PowerUps : MonoBehaviour
             contPlayerB = 0;
             contPlayerA = 0;
             power.changePower();
+            pUSlider1.gameObject.SetActive(false);
+            pUSlider2.gameObject.SetActive(false);
         }
     }
 
