@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     string playerH, pushPlayer;
     float movH;
+
     [Header("Push Force")]
     [SerializeField]
     public float pushForce;
@@ -36,6 +37,8 @@ public class PlayerController : MonoBehaviour
         isDead = false;
         strenghtparticleSystem = GetComponentInChildren<ParticleSystem>();
         clickCounter = 0;
+        
+
     }
 
 

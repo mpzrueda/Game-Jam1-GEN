@@ -3,7 +3,10 @@ guid: 1755f2f0aff1d1f499fae84e7f4a6c3b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - deadEnd: {instanceID: 0}
+  - enemyDeadEnd: {instanceID: 0}
+  - punchSound: {fileID: 8300000, guid: 3df1867cae49d4f45bcba189110e9dc5, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
