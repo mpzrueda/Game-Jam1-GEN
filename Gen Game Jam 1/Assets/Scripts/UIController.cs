@@ -16,7 +16,7 @@ public class UIController : MonoBehaviour
     [SerializeField]
     Button restartBtn;
     [SerializeField]
-    GameObject instructionsText;    
+    TextMeshProUGUI instructionsText;    
     [SerializeField]
     TextMeshProUGUI switchPosPUinstructionsText;    
     [SerializeField]
