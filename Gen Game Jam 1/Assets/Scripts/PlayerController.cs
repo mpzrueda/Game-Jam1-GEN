@@ -38,17 +38,14 @@ public class PlayerController : MonoBehaviour
         clickCounter = 0;
     }
 
-    private void FixedUpdate()
-    {
-        if (GameManager.Instance.gameState == GameState.gameOver) return;
-        //rbPlayer.AddForce(Vector3.right * dir, ForceMode.Impulse);
-        inicialPos = GameManager.Instance.center.transform.position;
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.gameState == GameState.gameOver) return;
+        if (GameManager.Instance.gameState == GameState.gameOver || GameManager.Instance.gameState == GameState.start) return;
+
+        rbPlayer.AddForce(Vector3.right * dir, ForceMode.Impulse);
+        inicialPos = GameManager.Instance.center.transform.position;
 
         Inputs();
         if(transform.position.x < inicialPos.x * dir )
