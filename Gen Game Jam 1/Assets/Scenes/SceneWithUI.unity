@@ -213,12 +213,12 @@ GameObject:
   - component: {fileID: 67263362}
   - component: {fileID: 67263361}
   m_Layer: 5
-  m_Name: PUInstructions (1)
+  m_Name: SwitchPUInstructions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &67263360
 RectTransform:
   m_ObjectHideFlags: 0
@@ -234,10 +234,10 @@ RectTransform:
   m_Father: {fileID: 1111806408}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 663, y: 137}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 0.74}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -208, y: 309}
+  m_SizeDelta: {x: 0, y: -26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &67263361
 MonoBehaviour:
@@ -259,7 +259,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Use this Powerup to switch spots with your oponent (or defend yourself
+    from the switch!)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -293,7 +294,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -322,7 +323,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -172.95758, w: 0}
+  m_margin: {x: 0, y: 0, z: -494.76324, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -864,7 +865,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fight
+  m_text: 'Fight!
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd21ee4dbf6116d41b89674db32f54b1, type: 2}
   m_sharedMaterial: {fileID: -5987279772413252859, guid: cd21ee4dbf6116d41b89674db32f54b1, type: 2}
@@ -2657,7 +2660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1620697610
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2692,12 +2695,12 @@ GameObject:
   - component: {fileID: 1620812475}
   - component: {fileID: 1620812474}
   m_Layer: 5
-  m_Name: PUInstructions
+  m_Name: DoublePUInstructions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1620812473
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2713,10 +2716,10 @@ RectTransform:
   m_Father: {fileID: 1111806408}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 663, y: 137}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -256, y: 77}
+  m_SizeDelta: {x: -50, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1620812474
 MonoBehaviour:
@@ -2738,7 +2741,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Use this Powerup to double your push temporarily!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2772,7 +2775,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2801,7 +2804,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -172.95758, w: 0}
+  m_margin: {x: 0, y: -178.77888, z: -543.1226, w: 216.02452}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3608,9 +3611,9 @@ MonoBehaviour:
   startBtn: {fileID: 1388905959}
   restartBtn: {fileID: 203352809}
   instructionsText: {fileID: 1120992651}
-  switchPosPUinstructionsText: {fileID: 1620812474}
+  switchPosPUinstructionsText: {fileID: 67263361}
   doubleForcePUinstructionsText: {fileID: 1620812474}
-  secsToWait: 0
+  secsToWait: 4
 --- !u!1001 &6036119531208886087
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3632,7 +3635,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 3df1867cae49d4f45bcba189110e9dc5, type: 3}
     - target: {fileID: 6036119532117822025, guid: 5eaf0a3625635c44cab65a022a10d90a, type: 3}
       propertyPath: addStrenght
-      value: 0.01
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 6036119532117822025, guid: 5eaf0a3625635c44cab65a022a10d90a, type: 3}
       propertyPath: enemyDeadEnd
@@ -3777,7 +3780,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 3df1867cae49d4f45bcba189110e9dc5, type: 3}
     - target: {fileID: 6854841682502178147, guid: 95d14836d067fe645a9d98134329aaa5, type: 3}
       propertyPath: addStrenght
-      value: 0.01
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 6854841682502178147, guid: 95d14836d067fe645a9d98134329aaa5, type: 3}
       propertyPath: enemyDeadEnd

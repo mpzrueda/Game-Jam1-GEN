@@ -30,6 +30,7 @@ public class Power : MonoBehaviour
         actualPower = powersNames[RandomNumber]; 
         if(actualPower == "Change")
         {
+            StartCoroutine(GameManager.Instance.ui.SwitchPosPU());
             life = changePowerLife;
             powerSlot1.sprite = power[0];
             powerSlot2.sprite = power[0];
@@ -37,6 +38,7 @@ public class Power : MonoBehaviour
         }
         else if(actualPower == "PushUp")
         {
+            StartCoroutine(GameManager.Instance.ui.DoubleForcePU());
             life = duplicatePowerLife;
             powerSlot1.sprite = power[1];
             powerSlot2.sprite = power[1];

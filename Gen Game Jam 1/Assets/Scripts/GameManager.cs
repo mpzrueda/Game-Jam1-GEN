@@ -16,8 +16,7 @@ public class GameManager : MonoBehaviour
     public PlayerController player1;
     
     public PlayerController player2;
-    [SerializeField]
-    UIController ui;
+    public UIController ui;
     public Collider center;
     public GameState gameState;
     public GameObject winner;
