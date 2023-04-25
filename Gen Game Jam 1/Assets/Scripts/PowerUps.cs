@@ -25,13 +25,13 @@ public class PowerUps : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        power.changePower();
+        power.changePower(pUSlider1,pUSlider2);
         pUSlider1.maxValue = power.life;
         pUSlider1.minValue = 0;
         pUSlider2.maxValue = power.life;
         pUSlider2.minValue = 0;
-        pUSlider1.value = 0;
-        pUSlider2.value = 0;
+        pUSlider1.value = power.life;
+        pUSlider2.value = power.life;
         pUSlider1.gameObject.SetActive(false);
         pUSlider2.gameObject.SetActive(false);
     }
@@ -41,8 +41,8 @@ public class PowerUps : MonoBehaviour
     {
         if (GameManager.Instance.gameState == GameState.gameOver) return;
         updatePowerTime();
-        pUSlider1.gameObject.SetActive(true);
-        pUSlider2.gameObject.SetActive(true);
+//        pUSlider1.gameObject.SetActive(true);
+  //      pUSlider2.gameObject.SetActive(true);
         checkLife();
         if(Input.GetKeyDown(KeyCode.A))
         {
@@ -77,27 +77,17 @@ public class PowerUps : MonoBehaviour
             //Destroy(power.B);
         }
     }
-    private IEnumerator colliderOn(GameObject player)
-    {
-        yield return new WaitForSeconds(2);
-        player.GetComponent<Collider>().enabled = true;
-    }
+
     public void aplyPowerUp(GameObject playerWin,GameObject playerLose)
     {
         if(power.actualPower == "Change")
         {
-            Debug.Log("Cambio");
-            Debug.Log(playerWin.transform.position);
-            Debug.Log(playerLose.transform.position);
-
             Vector3 tmpPosition = playerWin.transform.position;
-            //playerWin.GetComponent<Collider>().enabled = false;
-            //StartCoroutine(colliderOn(playerWin));
             playerWin.transform.position = playerLose.transform.position;
             playerLose.transform.position = tmpPosition;
-            Debug.Log(playerWin.transform.position);
-            Debug.Log(playerLose.transform.position);
-        }
+            playerWin.GetComponent<PlayerController>().dir*=-1;
+            playerLose.GetComponent<PlayerController>().dir*=-1;
+        }   
         else if(power.actualPower == "timeStop")
         {
             Debug.Log("time stop");
@@ -117,16 +107,16 @@ public class PowerUps : MonoBehaviour
             time = 0;
             contPlayerB = 0;
             contPlayerA = 0;
-            power.changePower();
-            pUSlider1.gameObject.SetActive(false);
-            pUSlider2.gameObject.SetActive(false);
+            power.changePower(pUSlider1, pUSlider2);
+       //     pUSlider1.gameObject.SetActive(false);
+         //   pUSlider2.gameObject.SetActive(false);
         }
     }
 
     public IEnumerator stopLoser(GameObject player)
     {
         float tmp = player.GetComponent<PlayerController>().pushForce;
-        player.GetComponent<PlayerController>().pushForce = 0;
+        player.GetComponent<PlayerController>().pushForce = 1000;
         yield return 3;
         player.GetComponent<PlayerController>().pushForce = tmp;
     }    

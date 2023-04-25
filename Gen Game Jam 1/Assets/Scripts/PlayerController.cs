@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public float pushForce;
     [SerializeField]
-    int dir;
+    public int dir;
     public int clickCounter;
     [SerializeField]
     float addStrenght;
