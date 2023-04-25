@@ -25,7 +25,7 @@ public class PowerUps : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        power.changePower(pUSlider1,pUSlider2);
+        power.changePower();
         pUSlider1.maxValue = power.life;
         pUSlider1.minValue = 0;
         pUSlider2.maxValue = power.life;
@@ -107,7 +107,7 @@ public class PowerUps : MonoBehaviour
             time = 0;
             contPlayerB = 0;
             contPlayerA = 0;
-            power.changePower(pUSlider1, pUSlider2);
+            power.changePower();
        //     pUSlider1.gameObject.SetActive(false);
          //   pUSlider2.gameObject.SetActive(false);
         }
